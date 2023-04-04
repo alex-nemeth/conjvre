@@ -29,6 +29,7 @@ class App extends Component {
 
         return (
             <div className="App">
+                <img className="logo" src="../src/assets/logo.png"></img>
                 {this.state.part === 0 && <Information />}
                 {this.state.part === 1 && <Education />}
                 {this.state.part === 2 && <Experience />}
