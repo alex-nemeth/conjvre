@@ -98,3 +98,39 @@ input {
     justify-content: center;
     gap: 20px;
 }
+
+.resume--container {
+    background-color: white;
+    color: black;
+    width: 974px;
+    min-height: 1240px;
+    padding: 20px;
+}
+
+.resume--information {
+    display: flex;
+    flex-direction: column;
+}
+
+.resume--name-container {
+    display: flex;
+    font-size: 50px;
+    gap: 20px;
+    justify-content: center;
+}
+
+.resume--contact-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.resume--education-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resume--experience-container {
+    display: flex;
+    justify-content: space-between;
+}
