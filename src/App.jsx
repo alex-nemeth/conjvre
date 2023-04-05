@@ -11,7 +11,6 @@ class App extends Component {
         super();
         this.state = {
             part: 1,
-            eduCount: 0,
             smallPreview: true,
             firstName: "Alex",
             lastName: "Nemeth",
@@ -41,7 +40,10 @@ class App extends Component {
         });
     };
 
-    add = () => {};
+    add = () => {
+        this.setState((prevState) => {
+            {}
+    };
 
     handleChange = (e) => {
         this.setState((prevState) => {
@@ -60,7 +62,10 @@ class App extends Component {
                 )}
                 {this.state.part === 1 && (
                     <div className="education--wrapper">
-                        <Education handleChange={this.handleChange} />
+                        <Education
+                            handleChange={this.handleChange}
+                            add={this.add}
+                        />
                         <Resume data={this.state} />
                     </div>
                 )}
