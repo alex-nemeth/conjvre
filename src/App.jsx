@@ -12,19 +12,29 @@ class App extends Component {
         this.state = {
             part: 1,
             smallPreview: true,
-            firstName: "Alex",
-            lastName: "Nemeth",
-            email: "nemeth@alex.sk",
-            phone: "0912345678",
-            university: "University of Economics Bratislava",
-            degree: "Economic Informatics",
-            uniStartDate: "10-10-2010",
-            uniEndDate: "10-10-2013",
-            position: "Customer Care",
-            company: "AT&T",
-            expStartDate: "10-10-2014",
-            expEndDate: "10-10-2016",
-            notes: "Tech support for AT&T customers",
+            personal: {
+                firstName: "Alex",
+                lastName: "Nemeth",
+                email: "nemeth@alex.sk",
+                phone: "0912345678",
+            },
+            education: [
+                {
+                    university: "University of Economics Bratislava",
+                    degree: "Economic Informatics",
+                    uniStartDate: "10-10-2010",
+                    uniEndDate: "10-10-2013",
+                },
+            ],
+            experience: [
+                {
+                    position: "Customer Care",
+                    company: "AT&T",
+                    expStartDate: "10-10-2014",
+                    expEndDate: "10-10-2016",
+                    notes: "Tech support for AT&T customers",
+                },
+            ],
         };
     }
 
@@ -40,17 +50,19 @@ class App extends Component {
         });
     };
 
-    //add = () => {
-    //    this.setState((prevState) => {
-    //        {}
-    //};
-
     handleChange = (e) => {
         this.setState((prevState) => {
             const { name, value } = e.target;
             return { [name]: value };
         });
-        console.log(this.state);
+    };
+
+    addNewEducation = (education) => {
+        this.setState((prevState) => {
+            prevState.education = [...prevState.education, education];
+            console.log(prevState);
+            return prevState;
+        });
     };
 
     render() {
@@ -64,7 +76,7 @@ class App extends Component {
                     <div className="education--wrapper">
                         <Education
                             handleChange={this.handleChange}
-                            add={this.add}
+                            add={this.addNewEducation}
                         />
                         <Resume data={this.state} />
                     </div>

@@ -3,7 +3,21 @@ import React, { Component } from "react";
 export default class Education extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            university: "University of Economics Bratislava",
+            degree: "Economic Informatics",
+            uniStartDate: "10-10-2010",
+            uniEndDate: "10-10-2013",
+        };
     }
+
+    handleChange = (e) => {
+        this.setState((prevState) => {
+            const { name, value } = e.target;
+            return { [name]: value };
+        });
+        console.log(this.state.education);
+    };
 
     render() {
         return (
@@ -14,28 +28,31 @@ export default class Education extends Component {
                     name="university"
                     className="education--school"
                     placeholder="School or University"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 ></input>
                 <input
                     type="text"
                     name="degree"
                     className="education--degree"
                     placeholder="Degree or Field"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 ></input>
                 <input
                     type="date"
                     name="uniStartDate"
                     className="education--date-start"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 ></input>
                 <input
                     type="date"
                     name="uniEndDate"
                     className="education--date-end"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 ></input>
-                <button className="builder--add-btn" onClick={this.props.add}>
+                <button
+                    className="builder--add-btn"
+                    onClick={() => this.props.add(this.state)}
+                >
                     Add New
                 </button>
             </div>

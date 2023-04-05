@@ -118,10 +118,16 @@ input {
     min-height: 1240px;
     padding: 20px;
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .small {
     scale: 0.4;
+    -ms-transform: scale(0.8, 0.8); /* IE 9 */
+    -webkit-transform: scale(0.8, 0.8); /* Safari and Chrome */
+    -o-transform: scale(0.8, 0.8); /* Opera */
+    -moz-transform: scale(0.8, 0.8); /* Firefox */
 }
 
 .resume--information {
