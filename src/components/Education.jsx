@@ -35,6 +35,9 @@ export default class Education extends Component {
                     className="education--date-end"
                     onChange={this.props.handleChange}
                 ></input>
+                <button className="builder--add-btn" onClick={this.props.add}>
+                    Add New
+                </button>
             </div>
         );
     }

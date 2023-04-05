@@ -40,10 +40,10 @@ class App extends Component {
         });
     };
 
-    add = () => {
-        this.setState((prevState) => {
-            {}
-    };
+    //add = () => {
+    //    this.setState((prevState) => {
+    //        {}
+    //};
 
     handleChange = (e) => {
         this.setState((prevState) => {

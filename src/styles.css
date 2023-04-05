@@ -105,7 +105,9 @@ input {
     gap: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     min-width: 400px;
+    min-height: 70vh;
     margin-left: 300px;
 }
 
