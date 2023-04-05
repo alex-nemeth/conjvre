@@ -1,5 +1,6 @@
 import { useState, Component } from "react";
 
+import Buttons from "./components/Buttons";
 import Information from "./components/Information";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
@@ -9,7 +10,9 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            part: 3,
+            part: 1,
+            eduCount: 0,
+            smallPreview: true,
             firstName: "Alex",
             lastName: "Nemeth",
             email: "nemeth@alex.sk",
@@ -38,6 +41,8 @@ class App extends Component {
         });
     };
 
+    add = () => {};
+
     handleChange = (e) => {
         this.setState((prevState) => {
             const { name, value } = e.target;
@@ -54,25 +59,20 @@ class App extends Component {
                     <Information handleChange={this.handleChange} />
                 )}
                 {this.state.part === 1 && (
-                    <Education handleChange={this.handleChange} />
+                    <div className="education--wrapper">
+                        <Education handleChange={this.handleChange} />
+                        <Resume data={this.state} />
+                    </div>
                 )}
                 {this.state.part === 2 && (
                     <Experience handleChange={this.handleChange} />
                 )}
                 {this.state.part === 3 && <Resume data={this.state} />}
-                <div className="builder--buttons">
-                    {this.state.part > 0 && (
-                        <button
-                            className="builder--back-btn"
-                            onClick={this.back}
-                        >
-                            Back
-                        </button>
-                    )}
-                    <button className="builder--next-btn" onClick={this.next}>
-                        Next
-                    </button>
-                </div>
+                <Buttons
+                    back={this.back}
+                    next={this.next}
+                    part={this.state.part}
+                />
             </div>
         );
     }

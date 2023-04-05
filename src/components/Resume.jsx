@@ -5,10 +5,17 @@ export default class Resume extends Component {
         super(props);
     }
 
+    //renderEducation() {
+    //    for (let i = 0; i < this.props.)
+    //}
+
     render() {
-        console.log(this.props.data.firstName + this.props.data.part);
         return (
-            <div className="resume--container">
+            <div
+                className={`resume--container ${
+                    this.props.data.smallPreview ? "small" : "large"
+                }`}
+            >
                 <div className="resume--information">
                     <div className="resume--name-container">
                         <h1 className="resume--first-name">
