@@ -11,22 +11,19 @@ export default class Resume extends Component {
             <div className="resume--container">
                 <div className="resume--information">
                     <div className="resume--name-container">
-                        <h3 className="resume--first-name">
+                        <h1 className="resume--first-name">
                             {this.props.data.firstName}
-                        </h3>
-                        <h3 className="resume--last-name">
+                        </h1>
+                        <h1 className="resume--last-name">
                             {this.props.data.lastName}
-                        </h3>
+                        </h1>
                     </div>
                     <div className="resume--contact-container">
-                        <h3 className="resume--phone">
-                            {this.props.data.phone}
-                        </h3>
-                        <h3 className="resume--email">
-                            {this.props.data.email}
-                        </h3>
+                        <p className="resume--phone">{this.props.data.phone}</p>
+                        <p className="resume--email">{this.props.data.email}</p>
                     </div>
                 </div>
+                <hr className="resume--separator-bold" />
                 <h2 className="resume--education-title">Education</h2>
                 <div className="resume--education-container">
                     <div className="resume--university-container">
@@ -39,13 +36,15 @@ export default class Resume extends Component {
                     </div>
                     <div className="resume--uni-dates-container">
                         <h3 className="resume--uni-start-date">
-                            {this.props.data.uniStartDate}
+                            {this.props.data.uniStartDate.replaceAll("-", ".")}
                         </h3>
                         <h3 className="resume--uni-end-date">
-                            {this.props.data.uniEndDate}
+                            {this.props.data.uniEndDate.replaceAll("-", ".")}
                         </h3>
                     </div>
                 </div>
+                <hr className="resume--separator" />
+
                 <h2 className="resume--experience-title">Experience</h2>
                 <div className="resume--experience-container">
                     <div className="resume--work-container">
@@ -61,13 +60,14 @@ export default class Resume extends Component {
                     </div>
                     <div className="resume--exp-dates-container">
                         <h3 className="resume--exp-start-date">
-                            {this.props.data.expStartDate}
+                            {this.props.data.expStartDate.replaceAll("-", ".")}
                         </h3>
                         <h3 className="resume--exp-end-date">
-                            {this.props.data.expEndDate}
+                            {this.props.data.expEndDate.replaceAll("-", ".")}
                         </h3>
                     </div>
                 </div>
+                <hr className="resume--separator" />
             </div>
         );
     }
