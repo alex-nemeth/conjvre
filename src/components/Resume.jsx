@@ -28,7 +28,7 @@ export default class Resume extends Component {
     educationData = () => {
         const educationData = this.props.data.education;
         return educationData.map((edu) => (
-            <>
+            <div className="resume--education-container">
                 <div className="resume--university-container">
                     <h3 className="resume--university">{edu.university}</h3>
                     <h3 className="resume--degree">{edu.degree}</h3>
@@ -38,17 +38,17 @@ export default class Resume extends Component {
                         {edu.uniStartDate.replaceAll("-", ".")}
                     </h3>
                     <h3 className="resume--uni-end-date">
-                        {edu.uniEndDate.replaceAll("-", ".")}
+                        - {edu.uniEndDate.replaceAll("-", ".")}
                     </h3>
                 </div>
-            </>
+            </div>
         ));
     };
 
     experienceData = () => {
         const experienceData = this.props.data.experience;
         return experienceData.map((exp) => (
-            <>
+            <div className="resume--experience-container">
                 <div className="resume--work-container">
                     <h3 className="resume--position">{exp.position}</h3>
                     <h3 className="resume--company">{exp.company}</h3>
@@ -59,10 +59,10 @@ export default class Resume extends Component {
                         {exp.expStartDate.replaceAll("-", ".")}
                     </h3>
                     <h3 className="resume--exp-end-date">
-                        {exp.expEndDate.replaceAll("-", ".")}
+                        - {exp.expEndDate.replaceAll("-", ".")}
                     </h3>
                 </div>
-            </>
+            </div>
         ));
     };
 
@@ -76,14 +76,10 @@ export default class Resume extends Component {
                 {this.informationData()}
                 <hr className="resume--separator-bold" />
                 <h2 className="resume--education-title">Education</h2>
-                <div className="resume--education-container">
-                    {this.educationData()}
-                </div>
+                {this.props.data.education.university && this.educationData()}
                 <hr className="resume--separator" />
                 <h2 className="resume--experience-title">Experience</h2>
-                <div className="resume--experience-container">
-                    {this.experienceData()}
-                </div>
+                {this.props.data.experience.position && this.experienceData()}
             </div>
         );
     }

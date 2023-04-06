@@ -4,10 +4,10 @@ export default class Education extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            university: "University of Economics Bratislava",
-            degree: "Economic Informatics",
-            uniStartDate: "10-10-2010",
-            uniEndDate: "10-10-2013",
+            university: "",
+            degree: "",
+            uniStartDate: "",
+            uniEndDate: "",
         };
     }
 

@@ -17,9 +17,19 @@ export default class Buttons extends Component {
                     </button>
                 )}
 
-                <button className="builder--next-btn" onClick={this.props.next}>
-                    Next
-                </button>
+                {this.props.part < 3 && (
+                    <button
+                        className="builder--next-btn"
+                        onClick={this.props.next}
+                    >
+                        {this.props.part === -1 ? "Begin" : "Next"}
+                    </button>
+                )}
+                {this.props.part === 3 && (
+                    <button className="builder--download-btn">
+                        Download PDF
+                    </button>
+                )}
             </div>
         );
     }

@@ -4,11 +4,11 @@ export default class Experience extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            position: "Customer Care",
-            company: "AT&T",
-            expStartDate: "10-10-2014",
-            expEndDate: "10-10-2016",
-            notes: "Tech support for AT&T customers",
+            position: "",
+            company: "",
+            expStartDate: "",
+            expEndDate: "",
+            notes: "",
         };
     }
 
