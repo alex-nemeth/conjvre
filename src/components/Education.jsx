@@ -16,7 +16,6 @@ export default class Education extends Component {
             const { name, value } = e.target;
             return { [name]: value };
         });
-        console.log(this.state.education);
     };
 
     render() {

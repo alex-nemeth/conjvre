@@ -12,7 +12,7 @@ class App extends Component {
         this.state = {
             part: 1,
             smallPreview: true,
-            personal: {
+            information: {
                 firstName: "Alex",
                 lastName: "Nemeth",
                 email: "nemeth@alex.sk",
@@ -57,10 +57,19 @@ class App extends Component {
         });
     };
 
-    addNewEducation = (education) => {
+    addInformation = (information) => {
+        this.setState((prevState) => {
+            return {
+                ...prevState,
+                information,
+            };
+        });
+        console.log(this.state.information);
+    };
+
+    addEducation = (education) => {
         this.setState((prevState) => {
             prevState.education = [...prevState.education, education];
-            console.log(prevState);
             return prevState;
         });
     };
@@ -70,14 +79,14 @@ class App extends Component {
             <div className="App">
                 <img className="logo" src="../src/assets/logo.png"></img>
                 {this.state.part === 0 && (
-                    <Information handleChange={this.handleChange} />
+                    <div className="wrapper">
+                        <Information save={this.addInformation} />
+                        <Resume data={this.state} />
+                    </div>
                 )}
                 {this.state.part === 1 && (
-                    <div className="education--wrapper">
-                        <Education
-                            handleChange={this.handleChange}
-                            add={this.addNewEducation}
-                        />
+                    <div className="wrapper">
+                        <Education add={this.addEducation} />
                         <Resume data={this.state} />
                     </div>
                 )}

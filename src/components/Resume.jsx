@@ -5,6 +5,26 @@ export default class Resume extends Component {
         super(props);
     }
 
+    informationData = () => {
+        const informationData = this.props.data.information;
+        return (
+            <div className="resume--information">
+                <div className="resume--name-container">
+                    <h1 className="resume--first-name">
+                        {informationData.firstName}
+                    </h1>
+                    <h1 className="resume--last-name">
+                        {informationData.lastName}
+                    </h1>
+                </div>
+                <div className="resume--contact-container">
+                    <p className="resume--phone">{informationData.phone}</p>
+                    <p className="resume--email">{informationData.email}</p>
+                </div>
+            </div>
+        );
+    };
+
     educationData = () => {
         const educationData = this.props.data.education;
         return educationData.map((obj) => (
@@ -32,24 +52,7 @@ export default class Resume extends Component {
                     this.props.data.smallPreview ? "small" : "large"
                 }`}
             >
-                <div className="resume--information">
-                    <div className="resume--name-container">
-                        <h1 className="resume--first-name">
-                            {this.props.data.personal.firstName}
-                        </h1>
-                        <h1 className="resume--last-name">
-                            {this.props.data.personal.lastName}
-                        </h1>
-                    </div>
-                    <div className="resume--contact-container">
-                        <p className="resume--phone">
-                            {this.props.data.personal.phone}
-                        </p>
-                        <p className="resume--email">
-                            {this.props.data.personal.email}
-                        </p>
-                    </div>
-                </div>
+                {this.informationData()}
                 <hr className="resume--separator-bold" />
                 <h2 className="resume--education-title">Education</h2>
                 <div className="resume--education-container">
