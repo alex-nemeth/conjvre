@@ -18,24 +18,11 @@ class App extends Component {
                 email: "",
                 phone: "",
             },
-            education: [
-                {
-                    //                   university: "",
-                    //                   degree: "",
-                    //                   uniStartDate: "",
-                    //                   uniEndDate: "",
-                },
-            ],
-            experience: [
-                {
-                    //                   position: "",
-                    //                   company: "",
-                    //                    expStartDate: "",
-                    //                    expEndDate: "",
-                    //                    notes: "",
-                },
-            ],
+            education: [{}],
+            experience: [{}],
         };
+
+        //placeholder state for testing
         //part: -1,
         //    information: {
         //        firstName: "Alex",
@@ -122,7 +109,10 @@ class App extends Component {
                 {this.state.part === 0 && (
                     <div className="wrapper">
                         <Information save={this.addInformation} />
-                        <Resume data={this.state} />
+                        <div className="preview-wrapper">
+                            <Resume data={this.state} />
+                        </div>
+                        z
                     </div>
                 )}
                 {this.state.part === 1 && (
