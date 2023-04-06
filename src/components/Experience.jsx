@@ -3,7 +3,21 @@ import React, { Component } from "react";
 export default class Experience extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            position: "Customer Care",
+            company: "AT&T",
+            expStartDate: "10-10-2014",
+            expEndDate: "10-10-2016",
+            notes: "Tech support for AT&T customers",
+        };
     }
+
+    handleChange = (e) => {
+        this.setState((prevState) => {
+            const { name, value } = e.target;
+            return { [name]: value };
+        });
+    };
 
     render() {
         return (
@@ -14,26 +28,26 @@ export default class Experience extends Component {
                     name="position"
                     className="experience--position"
                     placeholder="Position"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 ></input>
                 <input
                     type="text"
                     name="company"
                     className="experience--company"
                     placeholder="Company Name"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 ></input>
                 <input
                     type="date"
                     className="experience--date-start"
                     name="expStartDate"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 ></input>
                 <input
                     type="date"
                     className="experience--date-end"
                     name="expEndDate"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 ></input>
                 <br />
                 <textarea
@@ -41,8 +55,14 @@ export default class Experience extends Component {
                     name="notes"
                     className="experience--text"
                     placeholder="Notes"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 ></textarea>
+                <button
+                    className="builder--add-btn"
+                    onClick={() => this.props.add(this.state)}
+                >
+                    Add New
+                </button>
             </div>
         );
     }

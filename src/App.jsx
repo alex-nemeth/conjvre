@@ -10,8 +10,7 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            part: 1,
-            smallPreview: true,
+            part: 2,
             information: {
                 firstName: "Alex",
                 lastName: "Nemeth",
@@ -58,13 +57,7 @@ class App extends Component {
     };
 
     addInformation = (information) => {
-        this.setState((prevState) => {
-            return {
-                ...prevState,
-                information,
-            };
-        });
-        console.log(this.state.information);
+        this.setState((prevState) => ({ ...prevState, information }));
     };
 
     addEducation = (education) => {
@@ -72,6 +65,14 @@ class App extends Component {
             prevState.education = [...prevState.education, education];
             return prevState;
         });
+    };
+
+    addExperience = (experience) => {
+        this.setState((prevState) => {
+            prevState.experience = [...prevState.experience, experience];
+            return prevState;
+        });
+        console.log(this.state.experience);
     };
 
     render() {
@@ -91,7 +92,10 @@ class App extends Component {
                     </div>
                 )}
                 {this.state.part === 2 && (
-                    <Experience handleChange={this.handleChange} />
+                    <div className="wrapper">
+                        <Experience add={this.addExperience} />
+                        <Resume data={this.state} />
+                    </div>
                 )}
                 {this.state.part === 3 && <Resume data={this.state} />}
                 <Buttons
