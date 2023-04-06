@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 
-export default class Resume extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    informationData = () => {
-        const informationData = this.props.data.information;
+export default function Resume(props) {
+    function informationData() {
+        const informationData = props.data.information;
         return (
             <div className="resume--information">
                 <div className="resume--name-container">
@@ -23,10 +19,10 @@ export default class Resume extends Component {
                 </div>
             </div>
         );
-    };
+    }
 
-    educationData = () => {
-        const educationData = this.props.data.education;
+    function educationData() {
+        const educationData = props.data.education;
         return educationData.map((edu) => (
             <div className="resume--education-container">
                 <div className="resume--university-container">
@@ -43,10 +39,10 @@ export default class Resume extends Component {
                 </div>
             </div>
         ));
-    };
+    }
 
-    experienceData = () => {
-        const experienceData = this.props.data.experience;
+    function experienceData() {
+        const experienceData = props.data.experience;
         return experienceData.map((exp) => (
             <div className="resume--experience-container">
                 <div className="resume--work-container">
@@ -64,23 +60,21 @@ export default class Resume extends Component {
                 </div>
             </div>
         ));
-    };
-
-    render() {
-        return (
-            <div
-                className={`resume--container ${
-                    this.props.data.part !== 3 ? "small" : "large"
-                }`}
-            >
-                {this.informationData()}
-                <hr className="resume--separator-bold" />
-                <h2 className="resume--education-title">Education</h2>
-                {this.props.data.education.university && this.educationData()}
-                <hr className="resume--separator" />
-                <h2 className="resume--experience-title">Experience</h2>
-                {this.props.data.experience.position && this.experienceData()}
-            </div>
-        );
     }
+    console.log(props.data);
+    return (
+        <div
+            className={`resume--container ${
+                props.data.part !== 3 ? "small" : "large"
+            }`}
+        >
+            {informationData()}
+            <hr className="resume--separator-bold" />
+            <h2 className="resume--education-title">Education</h2>
+            {props.data.education.length > 1 && educationData()}
+            <hr className="resume--separator" />
+            <h2 className="resume--experience-title">Experience</h2>
+            {props.data.experience.length > 1 && experienceData()}
+        </div>
+    );
 }
