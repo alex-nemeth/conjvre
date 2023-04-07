@@ -46,6 +46,13 @@ export default function App() {
         });
     }
 
+    function removeEducation() {
+        setState((prevState) => {
+            prevState.education.pop();
+            return { ...prevState };
+        });
+    }
+
     function addExperience(experience) {
         setState((prevState) => {
             prevState.experience.push(experience);
@@ -53,9 +60,16 @@ export default function App() {
         });
     }
 
+    function removeExperience() {
+        setState((prevState) => {
+            prevState.experience.pop();
+            return { ...prevState };
+        });
+    }
+
     return (
         <div className="App">
-            <img className="logo" src="../src/assets/logo.png"></img>
+            <img className="logo" src="../public/logo.png"></img>
             {state.part === -1 && <Landing />}
             {state.part === 0 && (
                 <div className="wrapper">
@@ -68,13 +82,13 @@ export default function App() {
             )}
             {state.part === 1 && (
                 <div className="wrapper">
-                    <Education add={addEducation} />
+                    <Education add={addEducation} remove={removeEducation} />
                     <Resume data={state} />
                 </div>
             )}
             {state.part === 2 && (
                 <div className="wrapper">
-                    <Experience add={addExperience} />
+                    <Experience add={addExperience} remove={removeExperience} />
                     <Resume data={state} />
                 </div>
             )}
@@ -83,43 +97,3 @@ export default function App() {
         </div>
     );
 }
-
-//placeholder state for testing
-//part: -1,
-//    information: {
-//        firstName: "Alex",
-//        lastName: "Nemeth",
-//        email: "nemeth@alex.sk",
-//        phone: "0912345678",
-//    },
-//    education: [
-//        {
-//            university: "University of Economics Bratislava",
-//            degree: "Economic Informatics",
-//            uniStartDate: "10-10-2010",
-//            uniEndDate: "10-10-2013",
-//        },
-//        {
-//            university: "University of Economics Bratislava",
-//            degree: "Economic Informatics",
-//            uniStartDate: "10-10-2010",
-//            uniEndDate: "10-10-2013",
-//        },
-//    ],
-//    experience: [
-//        {
-//            position: "Customer Care",
-//            company: "AT&T",
-//            expStartDate: "10-10-2014",
-//            expEndDate: "10-10-2016",
-//            notes: "Tech support for AT&T customers",
-//        },
-//        {
-//            position: "Customer Care",
-//            company: "AT&T",
-//            expStartDate: "10-10-2014",
-//            expEndDate: "10-10-2016",
-//            notes: "Tech support for AT&T customers",
-//        },
-//    ],
-//};

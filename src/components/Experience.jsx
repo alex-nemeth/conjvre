@@ -4,8 +4,8 @@ export default function Experience(props) {
     const [state, setState] = useState({
         position: "",
         company: "",
-        expStartDate: "",
-        expEndDate: "",
+        expStartDate: "2023-04-07",
+        expEndDate: "2023-04-07",
         notes: "",
     });
 
@@ -61,6 +61,9 @@ export default function Experience(props) {
                 onClick={() => props.add(state)}
             >
                 Add New
+            </button>
+            <button className="builder--add-btn" onClick={props.remove}>
+                Remove Last
             </button>
         </div>
     );

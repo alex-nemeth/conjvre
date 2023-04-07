@@ -65,7 +65,6 @@ export default function Resume(props) {
             );
         });
     }
-    console.log(props.data);
     return (
         <div
             className={`resume--container ${

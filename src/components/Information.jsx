@@ -13,7 +13,6 @@ export default function Information(props) {
             const { name, value } = e.target;
             return { ...prevState, [name]: value };
         });
-        console.log(state);
     }
 
     return (

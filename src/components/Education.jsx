@@ -4,8 +4,8 @@ export default function Education(props) {
     const [state, setState] = useState({
         university: "",
         degree: "",
-        uniStartDate: "",
-        uniEndDate: "",
+        uniStartDate: "2023-04-07",
+        uniEndDate: "2023-04-07",
     });
 
     function handleChange(e) {
@@ -13,7 +13,6 @@ export default function Education(props) {
             const { name, value } = e.target;
             return { ...prevState, [name]: value };
         });
-        console.log(state);
     }
 
     return (
@@ -54,6 +53,9 @@ export default function Education(props) {
                 onClick={() => props.add(state)}
             >
                 Add New
+            </button>
+            <button className="builder--remove-btn" onClick={props.remove}>
+                Remove Last
             </button>
         </div>
     );
