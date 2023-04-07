@@ -11,8 +11,9 @@ export default function Education(props) {
     function handleChange(e) {
         setState((prevState) => {
             const { name, value } = e.target;
-            return { [name]: value };
+            return { ...prevState, [name]: value };
         });
+        console.log(state);
     }
 
     return (
@@ -24,6 +25,7 @@ export default function Education(props) {
                 className="education--school"
                 placeholder="School or University"
                 onChange={handleChange}
+                value={state.university}
             ></input>
             <input
                 type="text"
@@ -31,18 +33,21 @@ export default function Education(props) {
                 className="education--degree"
                 placeholder="Degree or Field"
                 onChange={handleChange}
+                value={state.degree}
             ></input>
             <input
                 type="date"
                 name="uniStartDate"
                 className="education--date-start"
                 onChange={handleChange}
+                value={state.uniStartDate}
             ></input>
             <input
                 type="date"
                 name="uniEndDate"
                 className="education--date-end"
                 onChange={handleChange}
+                value={state.uniEndDate}
             ></input>
             <button
                 className="builder--add-btn"

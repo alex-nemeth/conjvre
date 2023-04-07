@@ -9,56 +9,16 @@ import Landing from "./components/Landing";
 
 export default function App() {
     const [state, setState] = useState({
-        part: 0,
+        part: 1,
         information: {
             firstName: "Your Name Here",
             lastName: "",
             email: "",
             phone: "",
         },
-        education: [{}],
-        experience: [{}],
+        education: [],
+        experience: [],
     });
-
-    //placeholder state for testing
-    //part: -1,
-    //    information: {
-    //        firstName: "Alex",
-    //        lastName: "Nemeth",
-    //        email: "nemeth@alex.sk",
-    //        phone: "0912345678",
-    //    },
-    //    education: [
-    //        {
-    //            university: "University of Economics Bratislava",
-    //            degree: "Economic Informatics",
-    //            uniStartDate: "10-10-2010",
-    //            uniEndDate: "10-10-2013",
-    //        },
-    //        {
-    //            university: "University of Economics Bratislava",
-    //            degree: "Economic Informatics",
-    //            uniStartDate: "10-10-2010",
-    //            uniEndDate: "10-10-2013",
-    //        },
-    //    ],
-    //    experience: [
-    //        {
-    //            position: "Customer Care",
-    //            company: "AT&T",
-    //            expStartDate: "10-10-2014",
-    //            expEndDate: "10-10-2016",
-    //            notes: "Tech support for AT&T customers",
-    //        },
-    //        {
-    //            position: "Customer Care",
-    //            company: "AT&T",
-    //            expStartDate: "10-10-2014",
-    //            expEndDate: "10-10-2016",
-    //            notes: "Tech support for AT&T customers",
-    //        },
-    //    ],
-    //};
 
     function next() {
         setState((prevState) => {
@@ -82,14 +42,14 @@ export default function App() {
     function addEducation(education) {
         setState((prevState) => {
             prevState.education.push(education);
-            return prevState;
+            return { ...prevState };
         });
     }
 
     function addExperience(experience) {
         setState((prevState) => {
             prevState.experience.push(experience);
-            return prevState;
+            return { ...prevState };
         });
     }
 
@@ -123,3 +83,43 @@ export default function App() {
         </div>
     );
 }
+
+//placeholder state for testing
+//part: -1,
+//    information: {
+//        firstName: "Alex",
+//        lastName: "Nemeth",
+//        email: "nemeth@alex.sk",
+//        phone: "0912345678",
+//    },
+//    education: [
+//        {
+//            university: "University of Economics Bratislava",
+//            degree: "Economic Informatics",
+//            uniStartDate: "10-10-2010",
+//            uniEndDate: "10-10-2013",
+//        },
+//        {
+//            university: "University of Economics Bratislava",
+//            degree: "Economic Informatics",
+//            uniStartDate: "10-10-2010",
+//            uniEndDate: "10-10-2013",
+//        },
+//    ],
+//    experience: [
+//        {
+//            position: "Customer Care",
+//            company: "AT&T",
+//            expStartDate: "10-10-2014",
+//            expEndDate: "10-10-2016",
+//            notes: "Tech support for AT&T customers",
+//        },
+//        {
+//            position: "Customer Care",
+//            company: "AT&T",
+//            expStartDate: "10-10-2014",
+//            expEndDate: "10-10-2016",
+//            notes: "Tech support for AT&T customers",
+//        },
+//    ],
+//};

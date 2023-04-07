@@ -23,43 +23,47 @@ export default function Resume(props) {
 
     function educationData() {
         const educationData = props.data.education;
-        return educationData.map((edu) => (
-            <div className="resume--education-container">
-                <div className="resume--university-container">
-                    <h3 className="resume--university">{edu.university}</h3>
-                    <h3 className="resume--degree">{edu.degree}</h3>
+        return educationData.map((edu) => {
+            return (
+                <div className="resume--education-container">
+                    <div className="resume--university-container">
+                        <h3 className="resume--university">{edu.university}</h3>
+                        <h3 className="resume--degree">{edu.degree}</h3>
+                    </div>
+                    <div className="resume--uni-dates-container">
+                        <h3 className="resume--uni-start-date">
+                            {edu.uniStartDate.replaceAll("-", ".")}
+                        </h3>
+                        <h3 className="resume--uni-end-date">
+                            - {edu.uniEndDate.replaceAll("-", ".")}
+                        </h3>
+                    </div>
                 </div>
-                <div className="resume--uni-dates-container">
-                    <h3 className="resume--uni-start-date">
-                        {edu.uniStartDate.replaceAll("-", ".")}
-                    </h3>
-                    <h3 className="resume--uni-end-date">
-                        - {edu.uniEndDate.replaceAll("-", ".")}
-                    </h3>
-                </div>
-            </div>
-        ));
+            );
+        });
     }
 
     function experienceData() {
         const experienceData = props.data.experience;
-        return experienceData.map((exp) => (
-            <div className="resume--experience-container">
-                <div className="resume--work-container">
-                    <h3 className="resume--position">{exp.position}</h3>
-                    <h3 className="resume--company">{exp.company}</h3>
-                    <h3 className="resume--notes">{exp.notes}</h3>
+        return experienceData.map((exp) => {
+            return (
+                <div className="resume--experience-container">
+                    <div className="resume--work-container">
+                        <h3 className="resume--position">{exp.position}</h3>
+                        <h3 className="resume--company">{exp.company}</h3>
+                        <h3 className="resume--notes">{exp.notes}</h3>
+                    </div>
+                    <div className="resume--exp-dates-container">
+                        <h3 className="resume--exp-start-date">
+                            {exp.expStartDate.replaceAll("-", ".")}
+                        </h3>
+                        <h3 className="resume--exp-end-date">
+                            - {exp.expEndDate.replaceAll("-", ".")}
+                        </h3>
+                    </div>
                 </div>
-                <div className="resume--exp-dates-container">
-                    <h3 className="resume--exp-start-date">
-                        {exp.expStartDate.replaceAll("-", ".")}
-                    </h3>
-                    <h3 className="resume--exp-end-date">
-                        - {exp.expEndDate.replaceAll("-", ".")}
-                    </h3>
-                </div>
-            </div>
-        ));
+            );
+        });
     }
     console.log(props.data);
     return (
@@ -71,10 +75,10 @@ export default function Resume(props) {
             {informationData()}
             <hr className="resume--separator-bold" />
             <h2 className="resume--education-title">Education</h2>
-            {props.data.education.length > 1 && educationData()}
+            {props.data.education.length > 0 && educationData()}
             <hr className="resume--separator" />
             <h2 className="resume--experience-title">Experience</h2>
-            {props.data.experience.length > 1 && experienceData()}
+            {props.data.experience.length > 0 && experienceData()}
         </div>
     );
 }
