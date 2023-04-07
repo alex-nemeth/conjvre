@@ -97,12 +97,17 @@ input {
     overflow: hidden;
 }
 
+.builder--back-btn {
+    margin-right: 10px;
+}
+
 .wrapper {
     display: flex;
 }
 
 .resume--preview {
     width: 1000px;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,6 +156,11 @@ input {
 
 .small {
     transform: scale(0.4);
+    overflow: hidden;
+}
+
+.large {
+    transform: scale(0.625);
     overflow: hidden;
 }
 

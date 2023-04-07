@@ -15,7 +15,12 @@ export default function Buttons(props) {
                 </button>
             )}
             {props.part === 3 && (
-                <button className="builder--download-btn">Download PDF</button>
+                <button
+                    className="builder--download-btn"
+                    onClick={props.download}
+                >
+                    Download PDF
+                </button>
             )}
         </div>
     );
