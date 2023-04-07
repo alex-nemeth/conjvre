@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import logo from "../src/assets/logo.png";
+
 import Buttons from "./components/Buttons";
 import Information from "./components/Information";
 import Education from "./components/Education";
@@ -69,7 +71,7 @@ export default function App() {
 
     return (
         <div className="App">
-            <img className="logo" src="../public/logo.png"></img>
+            <img className="logo" src={logo}></img>
             {state.part === -1 && <Landing />}
             {state.part === 0 && (
                 <div className="wrapper">
