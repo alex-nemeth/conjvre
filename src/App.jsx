@@ -9,6 +9,9 @@ import Experience from "./components/Experience";
 import Resume from "./components/Resume";
 import Landing from "./components/Landing";
 
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
+
 export default function App() {
     const [state, setState] = useState({
         part: -1,
@@ -69,6 +72,16 @@ export default function App() {
         });
     }
 
+    function printDocument() {
+        const input = document.querySelector(".resume--container");
+        html2canvas(input).then((canvas) => {
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, "JPEG", 0, 0);
+            pdf.save("download.pdf");
+        });
+    }
+
     return (
         <div className="App">
             <img className="logo" src={logo}></img>
@@ -98,7 +111,12 @@ export default function App() {
                 </div>
             )}
             {state.part === 3 && <Resume data={state} />}
-            <Buttons back={back} next={next} part={state.part} />
+            <Buttons
+                back={back}
+                next={next}
+                part={state.part}
+                download={printDocument}
+            />
         </div>
     );
 }
