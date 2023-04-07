@@ -16,7 +16,7 @@ export default function Information(props) {
     }
 
     return (
-        <div className="information--container">
+        <div className="form--container">
             <h2 className="information--title">General information:</h2>
             <input
                 type="text"

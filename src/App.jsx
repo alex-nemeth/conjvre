@@ -11,7 +11,7 @@ import Landing from "./components/Landing";
 
 export default function App() {
     const [state, setState] = useState({
-        part: 1,
+        part: -1,
         information: {
             firstName: "Your Name Here",
             lastName: "",
@@ -76,22 +76,25 @@ export default function App() {
             {state.part === 0 && (
                 <div className="wrapper">
                     <Information save={addInformation} />
-                    <div className="preview-wrapper">
+                    <div className="resume--preview">
                         <Resume data={state} />
                     </div>
-                    z
                 </div>
             )}
             {state.part === 1 && (
                 <div className="wrapper">
                     <Education add={addEducation} remove={removeEducation} />
-                    <Resume data={state} />
+                    <div className="resume--preview">
+                        <Resume data={state} />
+                    </div>
                 </div>
             )}
             {state.part === 2 && (
                 <div className="wrapper">
                     <Experience add={addExperience} remove={removeExperience} />
-                    <Resume data={state} />
+                    <div className="resume--preview">
+                        <Resume data={state} />
+                    </div>
                 </div>
             )}
             {state.part === 3 && <Resume data={state} />}

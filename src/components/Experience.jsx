@@ -20,7 +20,7 @@ export default function Experience(props) {
     }
 
     return (
-        <div className="experience--container">
+        <div className="form--container">
             <h2 className="experience--title">Experience: </h2>
             <input
                 type="text"
@@ -36,19 +36,20 @@ export default function Experience(props) {
                 placeholder="Company Name"
                 onChange={handleChange}
             ></input>
-            <input
-                type="date"
-                className="experience--date-start"
-                name="expStartDate"
-                onChange={handleChange}
-            ></input>
-            <input
-                type="date"
-                className="experience--date-end"
-                name="expEndDate"
-                onChange={handleChange}
-            ></input>
-            <br />
+            <div className="dates--container">
+                <input
+                    type="date"
+                    className="experience--date-start"
+                    name="expStartDate"
+                    onChange={handleChange}
+                ></input>
+                <input
+                    type="date"
+                    className="experience--date-end"
+                    name="expEndDate"
+                    onChange={handleChange}
+                ></input>
+            </div>
             <textarea
                 type="text"
                 name="notes"
@@ -60,7 +61,7 @@ export default function Experience(props) {
                 className="builder--add-btn"
                 onClick={() => props.add(state)}
             >
-                Add New
+                Add
             </button>
             <button className="builder--add-btn" onClick={props.remove}>
                 Remove Last

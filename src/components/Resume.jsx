@@ -14,8 +14,8 @@ export default function Resume(props) {
                     </h1>
                 </div>
                 <div className="resume--contact-container">
-                    <p className="resume--phone">{informationData.phone}</p>
-                    <p className="resume--email">{informationData.email}</p>
+                    <p className="resume--phone">{informationData.phone} |</p>
+                    <p className="resume--email"> {informationData.email}</p>
                 </div>
             </div>
         );
@@ -31,12 +31,12 @@ export default function Resume(props) {
                         <h3 className="resume--degree">{edu.degree}</h3>
                     </div>
                     <div className="resume--uni-dates-container">
-                        <h3 className="resume--uni-start-date">
+                        <p className="resume--uni-start-date">
                             {edu.uniStartDate.replaceAll("-", ".")}
-                        </h3>
-                        <h3 className="resume--uni-end-date">
+                        </p>
+                        <p className="resume--uni-end-date">
                             - {edu.uniEndDate.replaceAll("-", ".")}
-                        </h3>
+                        </p>
                     </div>
                 </div>
             );
@@ -51,15 +51,15 @@ export default function Resume(props) {
                     <div className="resume--work-container">
                         <h3 className="resume--position">{exp.position}</h3>
                         <h3 className="resume--company">{exp.company}</h3>
-                        <h3 className="resume--notes">{exp.notes}</h3>
+                        <p className="resume--notes">{exp.notes}</p>
                     </div>
                     <div className="resume--exp-dates-container">
-                        <h3 className="resume--exp-start-date">
+                        <p className="resume--exp-start-date">
                             {exp.expStartDate.replaceAll("-", ".")}
-                        </h3>
-                        <h3 className="resume--exp-end-date">
+                        </p>
+                        <p className="resume--exp-end-date">
                             - {exp.expEndDate.replaceAll("-", ".")}
-                        </h3>
+                        </p>
                     </div>
                 </div>
             );

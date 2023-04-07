@@ -16,7 +16,7 @@ export default function Education(props) {
     }
 
     return (
-        <div className="education--container">
+        <div className="form--container">
             <h2 className="education--title">Education: </h2>
             <input
                 type="text"
@@ -34,25 +34,27 @@ export default function Education(props) {
                 onChange={handleChange}
                 value={state.degree}
             ></input>
-            <input
-                type="date"
-                name="uniStartDate"
-                className="education--date-start"
-                onChange={handleChange}
-                value={state.uniStartDate}
-            ></input>
-            <input
-                type="date"
-                name="uniEndDate"
-                className="education--date-end"
-                onChange={handleChange}
-                value={state.uniEndDate}
-            ></input>
+            <div className="dates--container">
+                <input
+                    type="date"
+                    name="uniStartDate"
+                    className="education--date-start"
+                    onChange={handleChange}
+                    value={state.uniStartDate}
+                ></input>
+                <input
+                    type="date"
+                    name="uniEndDate"
+                    className="education--date-end"
+                    onChange={handleChange}
+                    value={state.uniEndDate}
+                ></input>
+            </div>
             <button
                 className="builder--add-btn"
                 onClick={() => props.add(state)}
             >
-                Add New
+                Add
             </button>
             <button className="builder--remove-btn" onClick={props.remove}>
                 Remove Last
